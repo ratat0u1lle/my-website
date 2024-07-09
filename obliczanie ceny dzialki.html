@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Strona do obliczania ceny dzialki</title>
+        <style>
+            button{
+                width: 200px;
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <button onclick="pobierz_dane()">Oblicz</button><br/>
+            <h1></h1>
+        </center>
+        <script>
+            function oblicz(ilerazy, start, oile){
+                var suma = 0
+                for(i=0; i<ilerazy; i++){
+                    suma = suma + start;
+                    start = start + oile;
+                }
+                document.querySelector("h1").innerHTML = `Cena calkowita wynosi ${suma}`
+            }
+            function pobierz_dane(){
+                var start = parseFloat(prompt("Od jakiej ceny sie zaczyna:"))
+                var oile = parseInt(prompt("O ile cena sie zwieksza:"))
+                var ilerazy = parseInt(prompt("Podaj ile razy:"))
+                oblicz(ilerazy, start, oile)
+            }
+        </script>
+    </body>
+</html>
